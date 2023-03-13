@@ -1,0 +1,272 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap"); /* импорт кастомного шрифта */
+
+/* для всех элементов */
+/* * {
+  padding: 0;
+  margin: 0;
+} */
+
+body {
+  /* background: red; */
+  background-color: aqua;
+  color: violet; /* цвет текста */
+  /* font-size: 16px; размер шрифта */
+  /* font-weight: normal; ширина(толщина) шрифта */
+  /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; тип шрифта */
+  /* font-family: 'Roboto', sans-serif; кастомный шрифт */
+
+  font: normal 16px "Roboto", sans-serif; /* Объединение настроек шрифта в одну. Эта строка равнозначна трем выше. */
+}
+
+/* стили для ссылок */
+a {
+  color: black;
+  text-decoration: none;
+}
+
+/* псевдоселекторы */
+/* Говорим что для тега а при наведении(hover) текст подчеркивается */
+a:hover {
+  text-decoration: underline;
+}
+
+/* псевдоселекторы */
+/* Говорим что для тега а при нажатии(active) текст изменяет цвет */
+a:active {
+  color: red;
+}
+
+a:visited {
+  color: white;
+}
+
+/* картинка */
+.avatar {
+  /* для id решетка, для классов точка  */
+  width: 350px; /* размер картинки */
+  border-radius: 28px; /* окргуление картинки по углам. 50% = картинка круглая */
+  box-shadow: 4px 4px 20px 6px rgba(0, 0, 0, 25);
+}
+
+.info {
+  display: flex;
+  margin-bottom: 60px;
+}
+
+/* Набор правил, которые работают при условиях(например на ширине до 700px) */
+@media (max-width: 700px) {
+  .info {
+    display: block;
+    text-align:  center;
+  }
+}
+
+/* Картинка имя и описание (только то что в теге p) */
+.info p {
+  color: rgba(216, 151, 67, 0.644);
+  margin: 0;
+  font-style: italic; /* наклонный шрифт(если мы этого не делаем в html) */
+  font-weight: bold; /* жирный шрифт */
+  text-decoration: underline; /* подчеркнутый текст */
+  /* text-decoration: line-through; зачеркнутый текст */
+  /* text-decoration: underline line-through; подчеркнутый и зачеркнутый текст */
+
+  /* изменения текста */
+  /* text-transform: lowercase;  весь текст маленькими буквами (вне зависимости от того что написано в html файле) */
+  text-transform: capitalize; /* все слова в тексте начинаются с большой буквы (вне зависимости от того что написано в html файле) */
+
+  /* разрыв между символами */
+  letter-spacing: 5px;
+
+  /* разрыв между словами */
+  word-spacing: 12px;
+}
+
+.info-text {
+  margin-left: 40px;
+}
+
+.info-text h4 {
+  margin-bottom: 10px;
+}
+
+/* Box model */
+.container {
+  /* width: 750px; ширина контента блока (статическая) */
+  max-width: 750px; /* ширина контента блока (динамическая) */
+  margin: auto; /* местоположение контента */
+  margin-top: 30px;
+}
+
+.social {
+  background: red;
+  /* отступы по краям блока(внутренние) */
+  /* padding: 15px; по всем 4 сторонам */
+  /* padding: 15px 40px; первое - низ, верх; второе - право, лево */
+  padding: 15px 40px 20px 30px; /* верх, право, лево, лево */
+  /* аналогично можно описывать след образом */
+  /* padding-top: 15px;
+  padding-right: 40px;
+  padding-bottom: 20px;
+  padding-left: 30px; */
+
+  /* граница(шир, тип, цвет) */
+  border: 5px solid green;
+  border-bottom-style: dotted; /* стиль нижней границы */
+  border-top-width: 15px; /* ширина верхней границы */
+  border-right-color: black; /* цвет правой границы */
+
+  /* отступы по краям блока(внешние) Настройка аналогична padding*/
+  margin: 20px;
+}
+
+/* >   - означает что только дочерние модули смогут применять эти стили */
+/* .box-model > div {
+  float: left;
+  background: black; */
+/* height: 200px; высота */
+/* border: 4px solid red;
+  width: 25%; */
+/* позволяет учитывать не только контент, но и границы. Чтобы контент можно было выстроить в линию.
+   По умолчанию стоит content-box и учитывает только контент без границ. Иначе придется мучаться и настраивать ширину */
+/* box-sizing: border-box; 
+} */
+
+.bg-yellow {
+  background: yellow;
+}
+
+.bg-green {
+  background: green;
+}
+
+.bg-red {
+  background: red;
+}
+
+.card {
+  padding: 15px 20px;
+  /* background: red; для дебага и понимание где блоки */
+  margin-bottom: 20px; /* для отступа блоков друг от друга */
+  border-radius: 20px; /* скругление блоков */
+}
+
+.card h2 {
+  margin-bottom: 30px;
+}
+
+.list {
+  padding: 0 20px;
+  /* list-style: none; убрать нумерацию списка */
+}
+
+.list li {
+  color: gray;
+  margin-bottom: 10px;
+  border: 1px solid red;
+}
+
+.table {
+  width: 100%;
+}
+
+.table td {
+  padding-bottom: 40px;
+}
+
+/* Псевдоселекторы, которые помогают нам обратиться к определенным элементами */
+.table td:nth-child(2),
+.table td:nth-child(3) {
+  color: grey;
+}
+
+/* каждая нечетная(even если четная) строка с красной заливкой */
+.table tr:nth-child(odd) {
+  background: red;
+}
+
+.link-list {
+  list-style: none;
+  padding: 0;
+}
+
+.link-list li {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid green;
+}
+
+.contact h2 {
+  text-align: center;
+}
+
+.form-group label {
+  display: block; /* переход от строчных к блочным элементам */
+  font-size: 14px;
+  color: white;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  /* background: transparent;  чтобы цвет был прозрачным */
+  border-bottom: 1px solid black;
+  color: brown;
+  padding: 15px 0 10px; /* верх-15, право и лево - 0, низ-10 */
+  outline: none; /* окантовка формы ввода при нажатии на форму для ввода*/
+  /* outline-color: red; изменить цвет окантовки */
+  font-family: inherit; /* наследование шрифта */
+}
+
+.row {
+  /* display: none; убираем элементы из документа (но они остануться в коде на веб странице) */
+  display: flex; /* перекинули имя и email на одну строку */
+  margin-bottom: 20px;
+}
+
+.row > .form-group {
+  width: 50%;
+}
+
+/* первый элемент (псевдоселектор) */
+.row > .form-group:first-child {
+  margin-right: 20px;
+}
+
+.btn {
+  background: black;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 12px;
+  font-family: inherit;
+  cursor: pointer; /* при наведении на кнопку меняется курсор */
+}
+
+/* при наведении, кнопка меняет слегка фон (как я понял просто появляется прозрачность) */
+.btn:hover {
+  opacity: 0.7;
+}
+
+/* Позиционирование */
+.position {
+  position: relative; /* относительная позиция */
+  border: 4px solid black;
+  margin-top: 40px;
+  padding: 20px;
+  height: 300px;
+}
+
+.box {
+  /* position: static; по умолчанию внутри родительского блока */
+  /* position: absolute; не зависит от родительского элемента */
+  /* top: 50px;  настройка при position: absolute относительно самой странице*/
+  position: fixed; /* позиционирование на окне. При прокрутке страницы будет двигаться вместе с ней*/
+  top : 100px;
+  height: 100px;
+  width: 50px;
+  height: 50px;
+  background: lightcoral;
+}
